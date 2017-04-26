@@ -131,7 +131,7 @@
         </a>
     </li>
 
-                                                                                                                                                                <li class="method public">
+                                                                                                                                                                                                                        <li class="method public">
         <a href="#method_setLocale" title="setLocale :: Set the locale for this instance. All future calls to a getter will return the information for this locale.">
             <span class="description">Set the locale for this instance. All future calls to a getter will return the information for this locale.</span><pre>setLocale</pre>
         </a>
@@ -146,11 +146,16 @@
                                 <span class="description"></span><pre>getLocaleFromInput</pre>
                             </a>
                         </li>
+                                                                                <li class="method protected">
+                            <a href="#method_loopThroughFallbackChain" title="loopThroughFallbackChain :: ">
+                                <span class="description"></span><pre>loopThroughFallbackChain</pre>
+                            </a>
+                        </li>
                                                                                     </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -205,7 +210,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -237,7 +242,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -259,14 +264,14 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When $locale is not one of the locales supported by the space.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>When $locale is not one of the locales supported by the space.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -278,6 +283,50 @@
                                                                             
                                                                             <h3>Response</h3>
                                         <code>string</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_loopThroughFallbackChain"></a>
+                        <div class="element clickable method protected  method_loopThroughFallbackChain" data-toggle="collapse" data-target=".method_loopThroughFallbackChain .collapse">
+                            <h2>loopThroughFallbackChain</h2>
+                            <pre>loopThroughFallbackChain(array $valueMap, string $localeCode, \Contentful\Delivery\Space $space) : string|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\RuntimeException</dt>
+                                                        <dd><p>If we detect an endless loop</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$valueMap</h4>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$localeCode</h4>
+                                                <code>string</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$space</h4>
+                                                <code><a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string|null</code><p><p>The locale code for which a value can be found. null if the end of the chain has been reached.</p></p>
                                                                     </div>
                             </div>
 
@@ -295,14 +344,14 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When $locale is not one of the locales supported by the space.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>When $locale is not one of the locales supported by the space.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -322,7 +371,7 @@
                     
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
                                                     <a id="property_localeCode"> </a>
-                            <div class="element clickable property  protected property_localeCode" data-toggle="collapse" data-target=".property_localeCode .collapse">
+                            <div class="element clickable property  private property_localeCode" data-toggle="collapse" data-target=".property_localeCode .collapse">
                                 <h2>The code of the currently active locale</h2>
                                 <pre>localeCode : string</pre>
                                 <div class="labels">
@@ -348,7 +397,7 @@
                                 </div>
                             </div>
                                                     <a id="property_availableLocales"> </a>
-                            <div class="element clickable property  private property_availableLocales" data-toggle="collapse" data-target=".property_availableLocales .collapse">
+                            <div class="element clickable property  protected property_availableLocales" data-toggle="collapse" data-target=".property_availableLocales .collapse">
                                 <h2>List of codes for all the locales available in the space this resource belongs to</h2>
                                 <pre>availableLocales : array&lt;mixed,string&gt;</pre>
                                 <div class="labels">
@@ -393,7 +442,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:11 +0000.<br/>
     </footer>
     </body>
 </html>

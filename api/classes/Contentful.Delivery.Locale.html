@@ -132,6 +132,12 @@
     </li>
 
                                                                                                         <li class="method public">
+        <a href="#method_getFallbackCode" title="getFallbackCode :: Returns the code of the locale used for for the fallback">
+            <span class="description">Returns the code of the locale used for for the fallback</span><pre>getFallbackCode</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
         <a href="#method_getName" title="getName :: Returns the human readable name">
             <span class="description">Returns the human readable name</span><pre>getName</pre>
         </a>
@@ -153,11 +159,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -205,7 +211,7 @@
                                                                 <a id="method___construct"></a>
                         <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
                             <h2>Locale constructor.</h2>
-                            <pre>__construct(string $code, string $name, boolean $default = false) </pre>
+                            <pre>__construct(string $code, string $name, string $fallbackCode, boolean $default = false) </pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -222,7 +228,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -232,6 +238,10 @@
                                                                                     <div class="subelement argument">
                                                 <h4>$name</h4>
                                                 <code>string</code><p><p>Human readable name</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$fallbackCode</h4>
+                                                <code>string</code><p><p>The code of the locale used for for the fallback</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$default</h4>
@@ -262,7 +272,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -271,12 +281,12 @@
                             </div>
 
                         </div>
-                                            <a id="method_getName"></a>
-                        <div class="element clickable method public  method_getName" data-toggle="collapse" data-target=".method_getName .collapse">
-                            <h2>Returns the human readable name</h2>
-                            <pre>getName() : string</pre>
+                                            <a id="method_getFallbackCode"></a>
+                        <div class="element clickable method public  method_getFallbackCode" data-toggle="collapse" data-target=".method_getFallbackCode .collapse">
+                            <h2>Returns the code of the locale used for for the fallback</h2>
+                            <pre>getFallbackCode() : string</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                                                                                                                                                <span class="label label-info">api</span>                            </div>
 
                             
                             <div class="row collapse">
@@ -291,11 +301,40 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
-                                        <code>string</code><p><p>Api</p></p>
+                                        <code>string</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getName"></a>
+                        <div class="element clickable method public  method_getName" data-toggle="collapse" data-target=".method_getName .collapse">
+                            <h2>Returns the human readable name</h2>
+                            <pre>getName() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                <span class="label label-info">api</span>                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
                                                                     </div>
                             </div>
 
@@ -320,7 +359,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -359,7 +398,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -401,6 +440,32 @@
                             <div class="element clickable property  private property_name" data-toggle="collapse" data-target=".property_name .collapse">
                                 <h2>name</h2>
                                 <pre>name : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_fallbackCode"> </a>
+                            <div class="element clickable property  private property_fallbackCode" data-toggle="collapse" data-target=".property_fallbackCode .collapse">
+                                <h2>fallbackCode</h2>
+                                <pre>fallbackCode : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -469,7 +534,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

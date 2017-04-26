@@ -143,7 +143,7 @@
         </a>
     </li>
 
-                                                                                                        <li class="method public">
+                                                                                                                                                                <li class="method public">
         <a href="#method_getId" title="getId :: ">
             <span class="description"></span><pre>getId</pre>
         </a>
@@ -179,7 +179,7 @@
         </a>
     </li>
 
-                                                                                                        <li class="method public inherited">
+                                                                                                                                                                                                                                                                                                                                        <li class="method public inherited">
         <a href="#method_setLocale" title="setLocale :: Set the locale for this instance. All future calls to a getter will return the information for this locale.">
             <span class="description">Set the locale for this instance. All future calls to a getter will return the information for this locale.</span><pre>setLocale</pre>
         </a>
@@ -189,19 +189,24 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                <li class="method protected inherited">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="method protected inherited">
                             <a href="#method_getLocaleFromInput" title="getLocaleFromInput :: ">
                                 <span class="description"></span><pre>getLocaleFromInput</pre>
                             </a>
                         </li>
-                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                <li class="method protected inherited">
+                            <a href="#method_loopThroughFallbackChain" title="loopThroughFallbackChain :: ">
+                                <span class="description"></span><pre>loopThroughFallbackChain</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
                                                                                                                                                     <li class="method private">
-                            <a href="#method_formatDateForJson" title="formatDateForJson :: Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                            <a href="#method_formatDateForJson" title="formatDateForJson :: Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.">
-                                <span class="description">Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                                <span class="description">Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                             </a>
                         </li>
@@ -215,7 +220,27 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                 <span class="description"></span><pre>formatValueForJson</pre>
                             </a>
                         </li>
-                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                        <li class="method private">
+                            <a href="#method_getFieldConfigForName" title="getFieldConfigForName :: ">
+                                <span class="description"></span><pre>getFieldConfigForName</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                <li class="method private">
+                            <a href="#method_mapIdValues" title="mapIdValues :: ">
+                                <span class="description"></span><pre>mapIdValues</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_mapValues" title="mapValues :: ">
+                                <span class="description"></span><pre>mapValues</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_resolveLinkWithCache" title="resolveLinkWithCache :: Resolves a Link into an Entry or Asset. Resolved links are cached local to the object.">
+                                <span class="description">Resolves a Link into an Entry or Asset. Resolved links are cached local to the object.</span><pre>resolveLinkWithCache</pre>
+                            </a>
+                        </li>
+                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -255,7 +280,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                                                 <a id="method___call"></a>
                         <div class="element clickable method public  method___call" data-toggle="collapse" data-target=".method___call .collapse">
                             <h2>__call</h2>
-                            <pre>__call( $name,  $arguments) </pre>
+                            <pre>__call(string $name, array $arguments) : mixed</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -265,32 +290,20 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$name</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$arguments</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
                                                                     </div>
                             </div>
 
@@ -315,7 +328,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -329,7 +342,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                         </div>
                                             <a id="method_formatDateForJson"></a>
                         <div class="element clickable method private  method_formatDateForJson" data-toggle="collapse" data-target=".method_formatDateForJson .collapse">
-                            <h2>Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                            <h2>Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.</h2>
                             <pre>formatDateForJson(\DateTimeImmutable $dt) : string</pre>
                             <div class="labels">
@@ -341,7 +354,7 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -358,7 +371,7 @@ as the time zone specifier. Thus this hack.</h2>
                                             <a id="method_formatSimpleValueForJson"></a>
                         <div class="element clickable method private  method_formatSimpleValueForJson" data-toggle="collapse" data-target=".method_formatSimpleValueForJson .collapse">
                             <h2>formatSimpleValueForJson</h2>
-                            <pre>formatSimpleValueForJson( $value,  $type,  $linkType) </pre>
+                            <pre>formatSimpleValueForJson(mixed $value, string $type, string $linkType) : mixed</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -368,36 +381,24 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$value</h4>
-                                                <code></code><p></p>
+                                                <code>mixed</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$type</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$linkType</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
                                                                     </div>
                             </div>
 
@@ -405,7 +406,7 @@ as the time zone specifier. Thus this hack.</h2>
                                             <a id="method_formatValueForJson"></a>
                         <div class="element clickable method private  method_formatValueForJson" data-toggle="collapse" data-target=".method_formatValueForJson .collapse">
                             <h2>formatValueForJson</h2>
-                            <pre>formatValueForJson( $value, \Contentful\Delivery\ContentTypeField $fieldConfig) </pre>
+                            <pre>formatValueForJson(mixed $value, \Contentful\Delivery\ContentTypeField $fieldConfig) : mixed</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -415,32 +416,20 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$value</h4>
-                                                <code></code><p></p>
+                                                <code>mixed</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$fieldConfig</h4>
                                                 <code><a href="../classes/Contentful.Delivery.ContentTypeField.html">\Contentful\Delivery\ContentTypeField</a></code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
                                                                     </div>
                             </div>
 
@@ -472,7 +461,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                     </div>
@@ -506,9 +495,36 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getFieldConfigForName"></a>
+                        <div class="element clickable method private  method_getFieldConfigForName" data-toggle="collapse" data-target=".method_getFieldConfigForName .collapse">
+                            <h2>getFieldConfigForName</h2>
+                            <pre>getFieldConfigForName(string $fieldName) : \Contentful\Delivery\ContentTypeField|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$fieldName</h4>
+                                                <code>string</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Contentful.Delivery.ContentTypeField.html">\Contentful\Delivery\ContentTypeField</a>|null</code><p></p>
                                                                     </div>
                             </div>
 
@@ -540,7 +556,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                     </div>
@@ -567,7 +583,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -589,14 +605,14 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When $locale is not one of the locales supported by the space.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>When $locale is not one of the locales supported by the space.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -639,7 +655,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                     </div>
@@ -673,7 +689,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                     </div>
@@ -707,7 +723,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                     </div>
@@ -741,9 +757,134 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_loopThroughFallbackChain"></a>
+                        <div class="element clickable method protected  method_loopThroughFallbackChain inherited" data-toggle="collapse" data-target=".method_loopThroughFallbackChain .collapse">
+                            <h2>loopThroughFallbackChain</h2>
+                            <pre>loopThroughFallbackChain(array $valueMap, string $localeCode, \Contentful\Delivery\Space $space) : string|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\RuntimeException</dt>
+                                                        <dd><p>If we detect an endless loop</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$valueMap</h4>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$localeCode</h4>
+                                                <code>string</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$space</h4>
+                                                <code><a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string|null</code><p><p>The locale code for which a value can be found. null if the end of the chain has been reached.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_mapIdValues"></a>
+                        <div class="element clickable method private  method_mapIdValues" data-toggle="collapse" data-target=".method_mapIdValues .collapse">
+                            <h2>mapIdValues</h2>
+                            <pre>mapIdValues(\Contentful\Link|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Asset $value) : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$value</h4>
+                                                <code><a href="../classes/Contentful.Link.html">\Contentful\Link</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_mapValues"></a>
+                        <div class="element clickable method private  method_mapValues" data-toggle="collapse" data-target=".method_mapValues .collapse">
+                            <h2>mapValues</h2>
+                            <pre>mapValues(mixed $value) : mixed</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$value</h4>
+                                                <code>mixed</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_resolveLinkWithCache"></a>
+                        <div class="element clickable method private  method_resolveLinkWithCache" data-toggle="collapse" data-target=".method_resolveLinkWithCache .collapse">
+                            <h2>Resolves a Link into an Entry or Asset. Resolved links are cached local to the object.</h2>
+                            <pre>resolveLinkWithCache(\Contentful\Link $link) : \Contentful\Delivery\Asset|\Contentful\Delivery\EntryInterface|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$link</h4>
+                                                <code><a href="../classes/Contentful.Link.html">\Contentful\Link</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.EntryInterface.html">\Contentful\Delivery\EntryInterface</a>|null</code><p></p>
                                                                     </div>
                             </div>
 
@@ -761,14 +902,14 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When $locale is not one of the locales supported by the space.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>When $locale is not one of the locales supported by the space.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -790,7 +931,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                     <a id="property_fields"> </a>
                             <div class="element clickable property  private property_fields" data-toggle="collapse" data-target=".property_fields .collapse">
                                 <h2>fields</h2>
-                                <pre>fields : object</pre>
+                                <pre>fields : array</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -809,7 +950,33 @@ as the time zone specifier. Thus this hack.</h2>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>object</code>
+                                            <code>array</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_resolvedLinks"> </a>
+                            <div class="element clickable property  private property_resolvedLinks" data-toggle="collapse" data-target=".property_resolvedLinks .collapse">
+                                <h2>resolvedLinks</h2>
+                                <pre>resolvedLinks : array</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>array</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -842,7 +1009,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                     <a id="property_client"> </a>
                             <div class="element clickable property  protected property_client" data-toggle="collapse" data-target=".property_client .collapse">
                                 <h2>client</h2>
-                                <pre>client : \Contentful\Delivery\Client</pre>
+                                <pre>client : \Contentful\Delivery\Client|null</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -861,12 +1028,12 @@ as the time zone specifier. Thus this hack.</h2>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code><a href="../classes/Contentful.Delivery.Client.html">\Contentful\Delivery\Client</a></code>
+                                            <code><a href="../classes/Contentful.Delivery.Client.html">\Contentful\Delivery\Client</a>|null</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_localeCode"> </a>
-                            <div class="element clickable property  protected property_localeCode inherited" data-toggle="collapse" data-target=".property_localeCode .collapse">
+                            <div class="element clickable property  private property_localeCode inherited" data-toggle="collapse" data-target=".property_localeCode .collapse">
                                 <h2>The code of the currently active locale</h2>
                                 <pre>localeCode : string</pre>
                                 <div class="labels">
@@ -892,7 +1059,7 @@ as the time zone specifier. Thus this hack.</h2>
                                 </div>
                             </div>
                                                     <a id="property_availableLocales"> </a>
-                            <div class="element clickable property  private property_availableLocales inherited" data-toggle="collapse" data-target=".property_availableLocales .collapse">
+                            <div class="element clickable property  protected property_availableLocales inherited" data-toggle="collapse" data-target=".property_availableLocales .collapse">
                                 <h2>List of codes for all the locales available in the space this resource belongs to</h2>
                                 <pre>availableLocales : array&lt;mixed,string&gt;</pre>
                                 <div class="labels">
@@ -937,7 +1104,7 @@ as the time zone specifier. Thus this hack.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

@@ -125,23 +125,18 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                    <li class="method protected">
-                            <a href="#method_decodeJson" title="decodeJson :: ">
-                                <span class="description"></span><pre>decodeJson</pre>
-                            </a>
-                        </li>
-                                                                                                                    <li class="method protected">
-                            <a href="#method_getUserAgent" title="getUserAgent :: ">
-                                <span class="description"></span><pre>getUserAgent</pre>
+                                                                                                                                                                                        <li class="method protected">
+                            <a href="#method_getUserAgent" title="getUserAgent :: Returns the value of the User-Agent header for any requests made to Contentful">
+                                <span class="description">Returns the value of the User-Agent header for any requests made to Contentful</span><pre>getUserAgent</pre>
                             </a>
                         </li>
                                                                                 <li class="method protected">
-                            <a href="#method_getUserAgentAppName" title="getUserAgentAppName :: ">
-                                <span class="description"></span><pre>getUserAgentAppName</pre>
+                            <a href="#method_getUserAgentAppName" title="getUserAgentAppName :: The name of the library to be used in the User-Agent header.">
+                                <span class="description">The name of the library to be used in the User-Agent header.</span><pre>getUserAgentAppName</pre>
                             </a>
                         </li>
                                                                                 <li class="method protected">
@@ -158,7 +153,7 @@
                                 <span class="description"></span><pre>buildRequest</pre>
                             </a>
                         </li>
-                                                                                                                    <li class="method private">
+                                                                                <li class="method private">
                             <a href="#method_doRequest" title="doRequest :: ">
                                 <span class="description"></span><pre>doRequest</pre>
                             </a>
@@ -201,7 +196,7 @@
                                                                 <a id="method___construct"></a>
                         <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
                             <h2>Client constructor.</h2>
-                            <pre>__construct(string $token, string $baseUri,  $api, \Contentful\Log\LoggerInterface $logger = null) </pre>
+                            <pre>__construct(string $token, string $baseUri, string $api, \Contentful\Log\LoggerInterface $logger = null, \GuzzleHttp\ClientInterface $guzzle = null) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -218,7 +213,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -231,11 +226,15 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$api</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$logger</h4>
                                                 <code><a href="../classes/Contentful.Log.LoggerInterface.html">\Contentful\Log\LoggerInterface</a></code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$guzzle</h4>
+                                                <code>\GuzzleHttp\ClientInterface</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
@@ -245,7 +244,7 @@
                                             <a id="method_buildRequest"></a>
                         <div class="element clickable method private  method_buildRequest" data-toggle="collapse" data-target=".method_buildRequest .collapse">
                             <h2>buildRequest</h2>
-                            <pre>buildRequest( $method,  $path,  $query = null) </pre>
+                            <pre>buildRequest(string $method, string $path, array|string|null $query = null) : \GuzzleHttp\Psr7\Request</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -255,72 +254,33 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>If $query is not a valid type</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$method</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$path</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_decodeJson"></a>
-                        <div class="element clickable method protected  method_decodeJson" data-toggle="collapse" data-target=".method_decodeJson .collapse">
-                            <h2>decodeJson</h2>
-                            <pre>decodeJson(string $json) : object|array</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>On invalid JSON</p>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$json</h4>
-                                                <code>string</code><p><p>JSON encoded object or array</p></p>
+                                                <code>array|string|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>object|array</code><p></p>
+                                        <code>\GuzzleHttp\Psr7\Request</code><p></p>
                                                                     </div>
                             </div>
 
@@ -328,7 +288,7 @@
                                             <a id="method_doRequest"></a>
                         <div class="element clickable method private  method_doRequest" data-toggle="collapse" data-target=".method_doRequest .collapse">
                             <h2>doRequest</h2>
-                            <pre>doRequest( $request,  $options) </pre>
+                            <pre>doRequest(\Psr\Http\Message\RequestInterface $request, array $options) : \Psr\Http\Message\ResponseInterface|null</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -338,40 +298,28 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$request</h4>
-                                                <code></code><p></p>
+                                                <code>\Psr\Http\Message\RequestInterface</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$options</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>\Psr\Http\Message\ResponseInterface|null</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_getUserAgent"></a>
                         <div class="element clickable method protected  method_getUserAgent" data-toggle="collapse" data-target=".method_getUserAgent .collapse">
-                            <h2>getUserAgent</h2>
-                            <pre>getUserAgent() </pre>
+                            <h2>Returns the value of the User-Agent header for any requests made to Contentful</h2>
+                            <pre>getUserAgent() : string</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -388,24 +336,19 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_getUserAgentAppName"></a>
                         <div class="element clickable method protected  method_getUserAgentAppName" data-toggle="collapse" data-target=".method_getUserAgentAppName .collapse">
-                            <h2>getUserAgentAppName</h2>
-                            <pre>getUserAgentAppName() </pre>
+                            <h2>The name of the library to be used in the User-Agent header.</h2>
+                            <pre>getUserAgentAppName() : string</pre>
                             <div class="labels">
                                                                                                                                 <span class="label">abstract</span>                                                            </div>
 
@@ -422,16 +365,11 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
                                                                     </div>
                             </div>
 
@@ -439,7 +377,7 @@
                                             <a id="method_request"></a>
                         <div class="element clickable method protected  method_request" data-toggle="collapse" data-target=".method_request .collapse">
                             <h2>request</h2>
-                            <pre>request(string $method, string $path, array $options = array()) : array|object</pre>
+                            <pre>request(string $method, string $path, array $options = array()) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -449,7 +387,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -466,7 +404,7 @@
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>array|object</code><p></p>
+                                        <code>array</code><p></p>
                                                                     </div>
                             </div>
 
@@ -477,7 +415,7 @@
                                                     <a id="property_httpClient"> </a>
                             <div class="element clickable property  private property_httpClient" data-toggle="collapse" data-target=".property_httpClient .collapse">
                                 <h2>httpClient</h2>
-                                <pre>httpClient : \GuzzleHttp\Client</pre>
+                                <pre>httpClient : \GuzzleHttp\ClientInterface</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -496,7 +434,7 @@
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>\GuzzleHttp\Client</code>
+                                            <code>\GuzzleHttp\ClientInterface</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -578,6 +516,32 @@
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property_token"> </a>
+                            <div class="element clickable property  private property_token" data-toggle="collapse" data-target=".property_token .collapse">
+                                <h2>token</h2>
+                                <pre>token : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                             </div>
             </div>
             <a id="\Contentful\Client"></a>
@@ -598,7 +562,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

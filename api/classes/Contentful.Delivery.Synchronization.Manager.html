@@ -215,7 +215,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -242,6 +242,15 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\RuntimeException</dt>
+                                                        <dd><p>If this method is used for a subsequent sync when used with the Preview API.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
@@ -269,7 +278,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -286,7 +295,7 @@
                                             <a id="method_startSync"></a>
                         <div class="element clickable method public  method_startSync" data-toggle="collapse" data-target=".method_startSync .collapse">
                             <h2>Starts a new Synchronization. Will contain all the Resources currently present in the space.</h2>
-                            <pre>startSync(\Contentful\Delivery\Query|null $query = null) : \Contentful\Delivery\Synchronization\Result</pre>
+                            <pre>startSync(\Contentful\Delivery\Synchronization\Query|null $query = null) : \Contentful\Delivery\Synchronization\Result</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -294,15 +303,15 @@
                             <div class="row collapse">
                                 <div class="detail-description">
                                     <div class="long_description"><p>By calling Result::isDone it can be checked if there's another page of results, if so call <code>continueSync</code> to get the next page.</p>
-<p>A Query can be used to reduce only a subset of the space.</p></div>
+<p>A Query can be used to return only a subset of the space.</p></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code><a href="../classes/Contentful.Delivery.Query.html">\Contentful\Delivery\Query</a>|null</code><p></p>
+                                                <code><a href="../classes/Contentful.Delivery.Synchronization.Query.html">\Contentful\Delivery\Synchronization\Query</a>|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -366,6 +375,32 @@
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property_preview"> </a>
+                            <div class="element clickable property  private property_preview" data-toggle="collapse" data-target=".property_preview .collapse">
+                                <h2>preview</h2>
+                                <pre>preview : boolean</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>boolean</code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                             </div>
             </div>
             <a id="\Contentful\Delivery\Synchronization\Manager"></a>
@@ -386,7 +421,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

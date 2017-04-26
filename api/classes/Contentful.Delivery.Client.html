@@ -125,7 +125,7 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                                                                                <li class="method public">
+                                                                                                                                                                                                                        <li class="method public">
         <a href="#method_getAsset" title="getAsset :: ">
             <span class="description"></span><pre>getAsset</pre>
         </a>
@@ -168,8 +168,10 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getSynchronizationManager" title="getSynchronizationManager :: Get an instance of the synchronization manager.">
-            <span class="description">Get an instance of the synchronization manager.</span><pre>getSynchronizationManager</pre>
+        <a href="#method_getSynchronizationManager" title="getSynchronizationManager :: Get an instance of the synchronization manager. Note that with the Preview API only an inital sync
+is giving valid results.">
+            <span class="description">Get an instance of the synchronization manager. Note that with the Preview API only an inital sync
+is giving valid results.</span><pre>getSynchronizationManager</pre>
         </a>
     </li>
 
@@ -189,19 +191,14 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                    <li class="method protected">
-                            <a href="#method_decodeJson" title="decodeJson :: ">
-                                <span class="description"></span><pre>decodeJson</pre>
-                            </a>
-                        </li>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="method protected">
-                            <a href="#method_getUserAgent" title="getUserAgent :: ">
-                                <span class="description"></span><pre>getUserAgent</pre>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="method protected">
+                            <a href="#method_getUserAgent" title="getUserAgent :: Returns the value of the User-Agent header for any requests made to Contentful">
+                                <span class="description">Returns the value of the User-Agent header for any requests made to Contentful</span><pre>getUserAgent</pre>
                             </a>
                         </li>
                                                                                 <li class="method protected">
-                            <a href="#method_getUserAgentAppName" title="getUserAgentAppName :: ">
-                                <span class="description"></span><pre>getUserAgentAppName</pre>
+                            <a href="#method_getUserAgentAppName" title="getUserAgentAppName :: The name of the library to be used in the User-Agent header.">
+                                <span class="description">The name of the library to be used in the User-Agent header.</span><pre>getUserAgentAppName</pre>
                             </a>
                         </li>
                                                                                                                     <li class="method protected">
@@ -218,7 +215,7 @@
                                 <span class="description"></span><pre>buildRequest</pre>
                             </a>
                         </li>
-                                                                                                                    <li class="method private">
+                                                                                <li class="method private">
                             <a href="#method_doRequest" title="doRequest :: ">
                                 <span class="description"></span><pre>doRequest</pre>
                             </a>
@@ -282,7 +279,7 @@
                                                                 <a id="method___construct"></a>
                         <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
                             <h2>Client constructor.</h2>
-                            <pre>__construct(string $token, string $baseUri,  $api, \Contentful\Log\LoggerInterface $logger = null) </pre>
+                            <pre>__construct(string $token, string $baseUri, string $api, \Contentful\Log\LoggerInterface $logger = null, \GuzzleHttp\ClientInterface $guzzle = null) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -299,7 +296,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -312,11 +309,15 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$api</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$logger</h4>
                                                 <code><a href="../classes/Contentful.Log.LoggerInterface.html">\Contentful\Log\LoggerInterface</a></code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$guzzle</h4>
+                                                <code>\GuzzleHttp\ClientInterface</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
@@ -326,7 +327,7 @@
                                             <a id="method_buildRequest"></a>
                         <div class="element clickable method private  method_buildRequest" data-toggle="collapse" data-target=".method_buildRequest .collapse">
                             <h2>buildRequest</h2>
-                            <pre>buildRequest( $method,  $path,  $query = null) </pre>
+                            <pre>buildRequest(string $method, string $path, array|string|null $query = null) : \GuzzleHttp\Psr7\Request</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -336,72 +337,33 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>If $query is not a valid type</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$method</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$path</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_decodeJson"></a>
-                        <div class="element clickable method protected  method_decodeJson" data-toggle="collapse" data-target=".method_decodeJson .collapse">
-                            <h2>decodeJson</h2>
-                            <pre>decodeJson(string $json) : object|array</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>On invalid JSON</p>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$json</h4>
-                                                <code>string</code><p><p>JSON encoded object or array</p></p>
+                                                <code>array|string|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>object|array</code><p></p>
+                                        <code>\GuzzleHttp\Psr7\Request</code><p></p>
                                                                     </div>
                             </div>
 
@@ -409,7 +371,7 @@
                                             <a id="method_doRequest"></a>
                         <div class="element clickable method private  method_doRequest" data-toggle="collapse" data-target=".method_doRequest .collapse">
                             <h2>doRequest</h2>
-                            <pre>doRequest( $request,  $options) </pre>
+                            <pre>doRequest(\Psr\Http\Message\RequestInterface $request, array $options) : \Psr\Http\Message\ResponseInterface|null</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -419,32 +381,20 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$request</h4>
-                                                <code></code><p></p>
+                                                <code>\Psr\Http\Message\RequestInterface</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$options</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>\Psr\Http\Message\ResponseInterface|null</code><p></p>
                                                                     </div>
                             </div>
 
@@ -452,7 +402,7 @@
                                             <a id="method_getAsset"></a>
                         <div class="element clickable method public  method_getAsset" data-toggle="collapse" data-target=".method_getAsset .collapse">
                             <h2>getAsset</h2>
-                            <pre>getAsset(string $id) : \Contentful\Delivery\Asset</pre>
+                            <pre>getAsset(string $id, string|null $locale = null) : \Contentful\Delivery\Asset</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -462,12 +412,16 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$id</h4>
                                                 <code>string</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>string|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -479,7 +433,7 @@
                                             <a id="method_getAssets"></a>
                         <div class="element clickable method public  method_getAssets" data-toggle="collapse" data-target=".method_getAssets .collapse">
                             <h2>getAssets</h2>
-                            <pre>getAssets(\Contentful\Query|null $query = null) : \Contentful\ResourceArray</pre>
+                            <pre>getAssets(\Contentful\Delivery\Query|null $query = null) : \Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -489,12 +443,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code><a href="../classes/Contentful.Query.html">\Contentful\Query</a>|null</code><p></p>
+                                                <code><a href="../classes/Contentful.Delivery.Query.html">\Contentful\Delivery\Query</a>|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -516,7 +470,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -533,7 +487,7 @@
                                             <a id="method_getContentTypes"></a>
                         <div class="element clickable method public  method_getContentTypes" data-toggle="collapse" data-target=".method_getContentTypes .collapse">
                             <h2>getContentTypes</h2>
-                            <pre>getContentTypes(\Contentful\Query|null $query = null) : \Contentful\ResourceArray</pre>
+                            <pre>getContentTypes(\Contentful\Delivery\Query|null $query = null) : \Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -543,12 +497,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code><a href="../classes/Contentful.Query.html">\Contentful\Query</a>|null</code><p></p>
+                                                <code><a href="../classes/Contentful.Delivery.Query.html">\Contentful\Delivery\Query</a>|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -560,7 +514,7 @@
                                             <a id="method_getEntries"></a>
                         <div class="element clickable method public  method_getEntries" data-toggle="collapse" data-target=".method_getEntries .collapse">
                             <h2>getEntries</h2>
-                            <pre>getEntries(\Contentful\Query $query = null) : \Contentful\ResourceArray</pre>
+                            <pre>getEntries(\Contentful\Delivery\Query $query = null) : \Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -570,12 +524,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$query</h4>
-                                                <code><a href="../classes/Contentful.Query.html">\Contentful\Query</a></code><p></p>
+                                                <code><a href="../classes/Contentful.Delivery.Query.html">\Contentful\Delivery\Query</a></code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -587,7 +541,7 @@
                                             <a id="method_getEntry"></a>
                         <div class="element clickable method public  method_getEntry" data-toggle="collapse" data-target=".method_getEntry .collapse">
                             <h2>getEntry</h2>
-                            <pre>getEntry(string $id) : \Contentful\Delivery\EntryInterface</pre>
+                            <pre>getEntry(string $id, string|null $locale = null) : \Contentful\Delivery\EntryInterface</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
 
@@ -597,12 +551,16 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$id</h4>
                                                 <code>string</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>string|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -631,7 +589,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -642,7 +600,8 @@
                         </div>
                                             <a id="method_getSynchronizationManager"></a>
                         <div class="element clickable method public  method_getSynchronizationManager" data-toggle="collapse" data-target=".method_getSynchronizationManager .collapse">
-                            <h2>Get an instance of the synchronization manager.</h2>
+                            <h2>Get an instance of the synchronization manager. Note that with the Preview API only an inital sync
+is giving valid results.</h2>
                             <pre>getSynchronizationManager() : \Contentful\Delivery\Synchronization\Manager</pre>
                             <div class="labels">
                                                                                                                                                                 <span class="label label-info">api</span>                            </div>
@@ -653,15 +612,6 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>If this method is called while using the Preview API.</p>
-                                                                                                    </td>
-                                            </tr>
                                                                                     <tr>
                                                 <th>
                                                     see
@@ -679,7 +629,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -690,8 +640,8 @@
                         </div>
                                             <a id="method_getUserAgent"></a>
                         <div class="element clickable method protected  method_getUserAgent" data-toggle="collapse" data-target=".method_getUserAgent .collapse">
-                            <h2>getUserAgent</h2>
-                            <pre>getUserAgent() </pre>
+                            <h2>Returns the value of the User-Agent header for any requests made to Contentful</h2>
+                            <pre>getUserAgent() : string</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -708,24 +658,19 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_getUserAgentAppName"></a>
                         <div class="element clickable method protected  method_getUserAgentAppName" data-toggle="collapse" data-target=".method_getUserAgentAppName .collapse">
-                            <h2>getUserAgentAppName</h2>
-                            <pre>getUserAgentAppName() </pre>
+                            <h2>The name of the library to be used in the User-Agent header.</h2>
+                            <pre>getUserAgentAppName() : string</pre>
                             <div class="labels">
                                                                                                                                 <span class="label">abstract</span>                                                            </div>
 
@@ -742,16 +687,11 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
                                                                     </div>
                             </div>
 
@@ -786,7 +726,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -798,7 +738,7 @@
                                             <a id="method_request"></a>
                         <div class="element clickable method protected  method_request" data-toggle="collapse" data-target=".method_request .collapse">
                             <h2>request</h2>
-                            <pre>request(string $method, string $path, array $options = array()) : array|object</pre>
+                            <pre>request(string $method, string $path, array $options = array()) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -808,7 +748,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -825,7 +765,7 @@
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>array|object</code><p></p>
+                                        <code>array</code><p></p>
                                                                     </div>
                             </div>
 
@@ -833,7 +773,7 @@
                                             <a id="method_requestAndBuild"></a>
                         <div class="element clickable method private  method_requestAndBuild" data-toggle="collapse" data-target=".method_requestAndBuild .collapse">
                             <h2>requestAndBuild</h2>
-                            <pre>requestAndBuild( $method,  $path, array $options = array()) </pre>
+                            <pre>requestAndBuild(string $method, string $path, array $options = array()) : \Contentful\Delivery\Asset|\Contentful\Delivery\ContentType|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Space|\Contentful\Delivery\Synchronization\DeletedAsset|\Contentful\Delivery\Synchronization\DeletedEntry|\Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -843,36 +783,24 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$method</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$path</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$options</h4>
                                                 <code>array</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.ContentType.html">\Contentful\Delivery\ContentType</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a>|<a href="../classes/Contentful.Delivery.Synchronization.DeletedAsset.html">\Contentful\Delivery\Synchronization\DeletedAsset</a>|<a href="../classes/Contentful.Delivery.Synchronization.DeletedEntry.html">\Contentful\Delivery\Synchronization\DeletedEntry</a>|<a href="../classes/Contentful.ResourceArray.html">\Contentful\ResourceArray</a></code><p></p>
                                                                     </div>
                             </div>
 
@@ -890,14 +818,14 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When attemptiting to revive JSON belonging to a different space</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\Contentful\Exception\SpaceMismatchException</dt>
+                                                        <dd><p>When attempting to revive JSON belonging to a different space</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -967,7 +895,7 @@
                                                     <a id="property_instanceCache"> </a>
                             <div class="element clickable property  private property_instanceCache" data-toggle="collapse" data-target=".property_instanceCache .collapse">
                                 <h2>instanceCache</h2>
-                                <pre>instanceCache : \Contentful\Delivery\InstanceCache</pre>
+                                <pre>instanceCache : \Contentful\Delivery\Cache\InstanceCache</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -986,7 +914,7 @@
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code><a href="../classes/Contentful.Delivery.InstanceCache.html">\Contentful\Delivery\InstanceCache</a></code>
+                                            <code><a href="../classes/Contentful.Delivery.Cache.InstanceCache.html">\Contentful\Delivery\Cache\InstanceCache</a></code>
                                                                             </div>
                                 </div>
                             </div>
@@ -1016,10 +944,10 @@
                                                                             </div>
                                 </div>
                             </div>
-                                                    <a id="property_httpClient"> </a>
-                            <div class="element clickable property  private property_httpClient" data-toggle="collapse" data-target=".property_httpClient .collapse">
-                                <h2>httpClient</h2>
-                                <pre>httpClient : \GuzzleHttp\Client</pre>
+                                                    <a id="property_defaultLocale"> </a>
+                            <div class="element clickable property  private property_defaultLocale" data-toggle="collapse" data-target=".property_defaultLocale .collapse">
+                                <h2>defaultLocale</h2>
+                                <pre>defaultLocale : string|null</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -1038,7 +966,59 @@
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>\GuzzleHttp\Client</code>
+                                            <code>string|null</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_cacheManager"> </a>
+                            <div class="element clickable property  private property_cacheManager" data-toggle="collapse" data-target=".property_cacheManager .collapse">
+                                <h2>cacheManager</h2>
+                                <pre>cacheManager : \Contentful\Delivery\Cache\CacheInterface</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/Contentful.Delivery.Cache.CacheInterface.html">\Contentful\Delivery\Cache\CacheInterface</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_httpClient"> </a>
+                            <div class="element clickable property  private property_httpClient" data-toggle="collapse" data-target=".property_httpClient .collapse">
+                                <h2>httpClient</h2>
+                                <pre>httpClient : \GuzzleHttp\ClientInterface</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>\GuzzleHttp\ClientInterface</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -1120,6 +1100,32 @@
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property_token"> </a>
+                            <div class="element clickable property  private property_token" data-toggle="collapse" data-target=".property_token .collapse">
+                                <h2>token</h2>
+                                <pre>token : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                             </div>
             </div>
             <a id="\Contentful\Delivery\Client"></a>
@@ -1140,7 +1146,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

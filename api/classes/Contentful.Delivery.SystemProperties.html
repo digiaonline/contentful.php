@@ -150,6 +150,12 @@
     </li>
 
                                                                                                         <li class="method public">
+        <a href="#method_getLocale" title="getLocale :: ">
+            <span class="description"></span><pre>getLocale</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
         <a href="#method_getRevision" title="getRevision :: ">
             <span class="description"></span><pre>getRevision</pre>
         </a>
@@ -183,18 +189,18 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
                                                                                                                 <li class="method private">
-                            <a href="#method_formatDateForJson" title="formatDateForJson :: Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                            <a href="#method_formatDateForJson" title="formatDateForJson :: Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.">
-                                <span class="description">Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                                <span class="description">Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                             </a>
                         </li>
-                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -233,7 +239,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                                                 <a id="method___construct"></a>
                         <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
                             <h2>SystemProperties constructor.</h2>
-                            <pre>__construct(string $id, string $type, \Contentful\Delivery\Space|null $space = null, \Contentful\Delivery\ContentType|null $contentType = null, integer|null $revision = null, \DateTimeImmutable|null $createdAt = null, \DateTimeImmutable|null $updatedAt = null, \DateTimeImmutable|null $deletedAt = null) </pre>
+                            <pre>__construct(string $id, string $type, \Contentful\Delivery\Space|null $space = null, \Contentful\Delivery\ContentType|null $contentType = null, integer|null $revision = null, \DateTimeImmutable|null $createdAt = null, \DateTimeImmutable|null $updatedAt = null, \DateTimeImmutable|null $deletedAt = null, string|null $locale = null) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -250,7 +256,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -285,6 +291,10 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                                                 <h4>$deletedAt</h4>
                                                 <code>\DateTimeImmutable|null</code><p></p>
                                             </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>string|null</code><p></p>
+                                            </div>
                                                                             
                                                                     </div>
                             </div>
@@ -292,7 +302,7 @@ as the time zone specifier. Thus this hack.</span><pre>formatDateForJson</pre>
                         </div>
                                             <a id="method_formatDateForJson"></a>
                         <div class="element clickable method private  method_formatDateForJson" data-toggle="collapse" data-target=".method_formatDateForJson .collapse">
-                            <h2>Unfortunately PHP has no eeasy way to create a nice, ISO 8601 formatted date string with miliseconds and Z
+                            <h2>Unfortunately PHP has no easy way to create a nice, ISO 8601 formatted date string with milliseconds and Z
 as the time zone specifier. Thus this hack.</h2>
                             <pre>formatDateForJson(\DateTimeImmutable $dt) : string</pre>
                             <div class="labels">
@@ -304,7 +314,7 @@ as the time zone specifier. Thus this hack.</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -338,7 +348,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -367,7 +377,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -396,7 +406,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -425,11 +435,40 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
                                         <code>string</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getLocale"></a>
+                        <div class="element clickable method public  method_getLocale" data-toggle="collapse" data-target=".method_getLocale .collapse">
+                            <h2>getLocale</h2>
+                            <pre>getLocale() : string|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string|null</code><p></p>
                                                                     </div>
                             </div>
 
@@ -454,7 +493,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -483,7 +522,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -512,7 +551,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -541,7 +580,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -580,7 +619,7 @@ as the time zone specifier. Thus this hack.</h2>
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                     
                                                                             <h3>Response</h3>
@@ -722,6 +761,32 @@ as the time zone specifier. Thus this hack.</h2>
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property_locale"> </a>
+                            <div class="element clickable property  private property_locale" data-toggle="collapse" data-target=".property_locale .collapse">
+                                <h2>locale</h2>
+                                <pre>locale : string|null</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string|null</code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                     <a id="property_createdAt"> </a>
                             <div class="element clickable property  private property_createdAt" data-toggle="collapse" data-target=".property_createdAt .collapse">
                                 <h2>createdAt</h2>
@@ -820,7 +885,7 @@ as the time zone specifier. Thus this hack.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:12 +0000.<br/>
     </footer>
     </body>
 </html>

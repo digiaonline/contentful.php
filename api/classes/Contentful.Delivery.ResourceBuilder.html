@@ -125,23 +125,30 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class="method public">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="method public">
         <a href="#method_buildObjectsFromRawData" title="buildObjectsFromRawData :: Build objects based on PHP classes from the raw JSON based objects.">
             <span class="description">Build objects based on PHP classes from the raw JSON based objects.</span><pre>buildObjectsFromRawData</pre>
         </a>
     </li>
 
-                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
                                                                                                                 <li class="method private">
                             <a href="#method_buildArray" title="buildArray :: Build a ResourceArray.">
                                 <span class="description">Build a ResourceArray.</span><pre>buildArray</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_buildArrayDataList" title="buildArrayDataList :: Builds two hash maps of all the entries and assets that are in a response. These are later used to create
+the correct object graph.">
+                                <span class="description">Builds two hash maps of all the entries and assets that are in a response. These are later used to create
+the correct object graph.</span><pre>buildArrayDataList</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
@@ -205,6 +212,11 @@
                             </a>
                         </li>
                                                                                 <li class="method private">
+                            <a href="#method_doBuildObjectsFromRawData" title="doBuildObjectsFromRawData :: Build objects based on PHP classes from the raw JSON based objects.">
+                                <span class="description">Build objects based on PHP classes from the raw JSON based objects.</span><pre>doBuildObjectsFromRawData</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
                             <a href="#method_formatValue" title="formatValue :: Transforms values from the original JSON representation to an appropriate PHP representation.">
                                 <span class="description">Transforms values from the original JSON representation to an appropriate PHP representation.</span><pre>formatValue</pre>
                             </a>
@@ -215,8 +227,8 @@
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_processIncludes" title="processIncludes :: Process the includes of an API response.">
-                                <span class="description">Process the includes of an API response.</span><pre>processIncludes</pre>
+                            <a href="#method_normalizeFieldData" title="normalizeFieldData :: ">
+                                <span class="description"></span><pre>normalizeFieldData</pre>
                             </a>
                         </li>
                                                 </ul>
@@ -257,7 +269,7 @@
                                                                 <a id="method___construct"></a>
                         <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
                             <h2>ResourceBuilder constructor.</h2>
-                            <pre>__construct(\Contentful\Delivery\Client $client, \Contentful\Delivery\InstanceCache $instanceCache, string $spaceId) </pre>
+                            <pre>__construct(\Contentful\Delivery\Client $client, \Contentful\Delivery\Cache\InstanceCache $instanceCache, \Contentful\Delivery\Cache\CacheInterface $filesystemCache, string $spaceId) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -274,7 +286,7 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -283,7 +295,11 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$instanceCache</h4>
-                                                <code><a href="../classes/Contentful.Delivery.InstanceCache.html">\Contentful\Delivery\InstanceCache</a></code><p></p>
+                                                <code><a href="../classes/Contentful.Delivery.Cache.InstanceCache.html">\Contentful\Delivery\Cache\InstanceCache</a></code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filesystemCache</h4>
+                                                <code><a href="../classes/Contentful.Delivery.Cache.CacheInterface.html">\Contentful\Delivery\Cache\CacheInterface</a></code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$spaceId</h4>
@@ -297,7 +313,7 @@
                                             <a id="method_buildArray"></a>
                         <div class="element clickable method private  method_buildArray" data-toggle="collapse" data-target=".method_buildArray .collapse">
                             <h2>Build a ResourceArray.</h2>
-                            <pre>buildArray(object $data) : \Contentful\ResourceArray</pre>
+                            <pre>buildArray(array $data, array|null $rawDataList = null) : \Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -307,12 +323,16 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -321,10 +341,11 @@
                             </div>
 
                         </div>
-                                            <a id="method_buildAsset"></a>
-                        <div class="element clickable method private  method_buildAsset" data-toggle="collapse" data-target=".method_buildAsset .collapse">
-                            <h2>Build an Asset.</h2>
-                            <pre>buildAsset(object $data) : \Contentful\Delivery\Asset</pre>
+                                            <a id="method_buildArrayDataList"></a>
+                        <div class="element clickable method private  method_buildArrayDataList" data-toggle="collapse" data-target=".method_buildArrayDataList .collapse">
+                            <h2>Builds two hash maps of all the entries and assets that are in a response. These are later used to create
+the correct object graph.</h2>
+                            <pre>buildArrayDataList(array $data) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -334,12 +355,39 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_buildAsset"></a>
+                        <div class="element clickable method private  method_buildAsset" data-toggle="collapse" data-target=".method_buildAsset .collapse">
+                            <h2>Build an Asset.</h2>
+                            <pre>buildAsset(array $data) : \Contentful\Delivery\Asset</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$data</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -351,7 +399,7 @@
                                             <a id="method_buildContentType"></a>
                         <div class="element clickable method private  method_buildContentType" data-toggle="collapse" data-target=".method_buildContentType .collapse">
                             <h2>Creates a ContentType.</h2>
-                            <pre>buildContentType(object $data) : \Contentful\Delivery\ContentType|null</pre>
+                            <pre>buildContentType(array $data) : \Contentful\Delivery\ContentType|null</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -361,12 +409,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -378,7 +426,7 @@
                                             <a id="method_buildContentTypeField"></a>
                         <div class="element clickable method private  method_buildContentTypeField" data-toggle="collapse" data-target=".method_buildContentTypeField .collapse">
                             <h2>buildContentTypeField</h2>
-                            <pre>buildContentTypeField(object $data) : \Contentful\Delivery\ContentTypeField</pre>
+                            <pre>buildContentTypeField(array $data) : \Contentful\Delivery\ContentTypeField</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -388,12 +436,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -405,7 +453,7 @@
                                             <a id="method_buildDeletedAsset"></a>
                         <div class="element clickable method private  method_buildDeletedAsset" data-toggle="collapse" data-target=".method_buildDeletedAsset .collapse">
                             <h2>buildDeletedAsset</h2>
-                            <pre>buildDeletedAsset(object $data) : \Contentful\Delivery\Synchronization\DeletedAsset</pre>
+                            <pre>buildDeletedAsset(array $data) : \Contentful\Delivery\Synchronization\DeletedAsset</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -415,12 +463,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -432,7 +480,7 @@
                                             <a id="method_buildDeletedEntry"></a>
                         <div class="element clickable method private  method_buildDeletedEntry" data-toggle="collapse" data-target=".method_buildDeletedEntry .collapse">
                             <h2>buildDeletedEntry</h2>
-                            <pre>buildDeletedEntry(object $data) : \Contentful\Delivery\Synchronization\DeletedEntry</pre>
+                            <pre>buildDeletedEntry(array $data) : \Contentful\Delivery\Synchronization\DeletedEntry</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -442,12 +490,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -459,7 +507,7 @@
                                             <a id="method_buildEntry"></a>
                         <div class="element clickable method private  method_buildEntry" data-toggle="collapse" data-target=".method_buildEntry .collapse">
                             <h2>Creates a DynamicEntry or a subclass thereof.</h2>
-                            <pre>buildEntry(object $data) : \Contentful\Delivery\DynamicEntry</pre>
+                            <pre>buildEntry(array $data, array|null $rawDataList = null, integer $depthCount) : \Contentful\Delivery\DynamicEntry</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -469,12 +517,20 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -486,7 +542,7 @@
                                             <a id="method_buildField"></a>
                         <div class="element clickable method private  method_buildField" data-toggle="collapse" data-target=".method_buildField .collapse">
                             <h2>buildField</h2>
-                            <pre>buildField(\Contentful\Delivery\ContentTypeField $fieldConfig, object $fieldData) : object</pre>
+                            <pre>buildField(\Contentful\Delivery\ContentTypeField $fieldConfig, array $fieldData, array|null $rawDataList = null, integer $depthCount) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -496,7 +552,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -505,11 +561,19 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$fieldData</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>object</code><p></p>
+                                        <code>array</code><p></p>
                                                                     </div>
                             </div>
 
@@ -517,7 +581,7 @@
                                             <a id="method_buildFields"></a>
                         <div class="element clickable method private  method_buildFields" data-toggle="collapse" data-target=".method_buildFields .collapse">
                             <h2>buildFields</h2>
-                            <pre>buildFields(\Contentful\Delivery\ContentType $contentType, object $fields) : object</pre>
+                            <pre>buildFields(\Contentful\Delivery\ContentType $contentType, array $fields, string|null $locale, array|null $rawDataList = null, integer $depthCount) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -527,7 +591,7 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -536,11 +600,23 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$fields</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>string|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>object</code><p></p>
+                                        <code>array</code><p></p>
                                                                     </div>
                             </div>
 
@@ -548,7 +624,7 @@
                                             <a id="method_buildFile"></a>
                         <div class="element clickable method private  method_buildFile" data-toggle="collapse" data-target=".method_buildFile .collapse">
                             <h2>Creates a File or a subclass thereof.</h2>
-                            <pre>buildFile(object $data) : \Contentful\Delivery\File|\Contentful\Delivery\ImageFile</pre>
+                            <pre>buildFile(array $data) : \Contentful\File|\Contentful\ImageFile</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -558,16 +634,16 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code><a href="../classes/Contentful.Delivery.File.html">\Contentful\Delivery\File</a>|<a href="../classes/Contentful.Delivery.ImageFile.html">\Contentful\Delivery\ImageFile</a></code><p></p>
+                                        <code><a href="../classes/Contentful.File.html">\Contentful\File</a>|<a href="../classes/Contentful.ImageFile.html">\Contentful\ImageFile</a></code><p></p>
                                                                     </div>
                             </div>
 
@@ -575,7 +651,7 @@
                                             <a id="method_buildLink"></a>
                         <div class="element clickable method private  method_buildLink" data-toggle="collapse" data-target=".method_buildLink .collapse">
                             <h2>When an instance of the target already exists, it is returned. If not, a Link is created as placeholder.</h2>
-                            <pre>buildLink(object $data) : \Contentful\Delivery\Asset|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Link</pre>
+                            <pre>buildLink(array $data, array|null $rawDataList = null, integer $depthCount) : \Contentful\Delivery\Asset|\Contentful\Delivery\DynamicEntry|\Contentful\Link</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -585,25 +661,33 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When encountering an unexpected link type. Only links to assets and entries are currently handled.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\InvalidArgumentException</dt>
+                                                        <dd><p>When encountering an unexpected link type. Only links to assets and entries are currently handled.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code><a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Delivery.Link.html">\Contentful\Delivery\Link</a></code><p></p>
+                                        <code><a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Link.html">\Contentful\Link</a></code><p></p>
                                                                     </div>
                             </div>
 
@@ -611,7 +695,7 @@
                                             <a id="method_buildObjectsFromRawData"></a>
                         <div class="element clickable method public  method_buildObjectsFromRawData" data-toggle="collapse" data-target=".method_buildObjectsFromRawData .collapse">
                             <h2>Build objects based on PHP classes from the raw JSON based objects.</h2>
-                            <pre>buildObjectsFromRawData(object $data) : \Contentful\Delivery\Asset|\Contentful\Delivery\ContentType|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Space|\Contentful\Delivery\Synchronization\DeletedAsset|\Contentful\Delivery\Synchronization\DeletedEntry|\Contentful\ResourceArray</pre>
+                            <pre>buildObjectsFromRawData(array $data) : \Contentful\Delivery\Asset|\Contentful\Delivery\ContentType|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Space|\Contentful\Delivery\Synchronization\DeletedAsset|\Contentful\Delivery\Synchronization\DeletedEntry|\Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -621,12 +705,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -638,7 +722,7 @@
                                             <a id="method_buildSpace"></a>
                         <div class="element clickable method private  method_buildSpace" data-toggle="collapse" data-target=".method_buildSpace .collapse">
                             <h2>buildSpace</h2>
-                            <pre>buildSpace(object $data) : \Contentful\Delivery\Space|null</pre>
+                            <pre>buildSpace(array $data) : \Contentful\Delivery\Space</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -648,25 +732,25 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When attempting to build a different Space than the one this ResourceBuilder is configured to handle.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\Contentful\Exception\SpaceMismatchException</dt>
+                                                        <dd><p>When attempting to build a different Space than the one this ResourceBuilder is configured to handle.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$data</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code><a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a>|null</code><p></p>
+                                        <code><a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a></code><p></p>
                                                                     </div>
                             </div>
 
@@ -674,7 +758,7 @@
                                             <a id="method_buildSystemProperties"></a>
                         <div class="element clickable method private  method_buildSystemProperties" data-toggle="collapse" data-target=".method_buildSystemProperties .collapse">
                             <h2>buildSystemProperties</h2>
-                            <pre>buildSystemProperties(object $sys) : \Contentful\Delivery\SystemProperties</pre>
+                            <pre>buildSystemProperties(array $sys) : \Contentful\Delivery\SystemProperties</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -684,12 +768,12 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$sys</h4>
-                                                <code>object</code><p></p>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -698,10 +782,10 @@
                             </div>
 
                         </div>
-                                            <a id="method_formatValue"></a>
-                        <div class="element clickable method private  method_formatValue" data-toggle="collapse" data-target=".method_formatValue .collapse">
-                            <h2>Transforms values from the original JSON representation to an appropriate PHP representation.</h2>
-                            <pre>formatValue(\Contentful\Delivery\ContentTypeField|string $fieldConfig, mixed $value) : array|\Contentful\Delivery\Asset|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Link|\Contentful\Location|\DateTimeImmutable</pre>
+                                            <a id="method_doBuildObjectsFromRawData"></a>
+                        <div class="element clickable method private  method_doBuildObjectsFromRawData" data-toggle="collapse" data-target=".method_doBuildObjectsFromRawData .collapse">
+                            <h2>Build objects based on PHP classes from the raw JSON based objects.</h2>
+                            <pre>doBuildObjectsFromRawData(array $data, array|null $rawDataList = null, integer $depthCount) : \Contentful\Delivery\Asset|\Contentful\Delivery\ContentType|\Contentful\Delivery\DynamicEntry|\Contentful\Delivery\Space|\Contentful\Delivery\Synchronization\DeletedAsset|\Contentful\Delivery\Synchronization\DeletedEntry|\Contentful\ResourceArray</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -711,7 +795,42 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                            </table>
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$data</h4>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.ContentType.html">\Contentful\Delivery\ContentType</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Delivery.Space.html">\Contentful\Delivery\Space</a>|<a href="../classes/Contentful.Delivery.Synchronization.DeletedAsset.html">\Contentful\Delivery\Synchronization\DeletedAsset</a>|<a href="../classes/Contentful.Delivery.Synchronization.DeletedEntry.html">\Contentful\Delivery\Synchronization\DeletedEntry</a>|<a href="../classes/Contentful.ResourceArray.html">\Contentful\ResourceArray</a></code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_formatValue"></a>
+                        <div class="element clickable method private  method_formatValue" data-toggle="collapse" data-target=".method_formatValue .collapse">
+                            <h2>Transforms values from the original JSON representation to an appropriate PHP representation.</h2>
+                            <pre>formatValue(\Contentful\Delivery\ContentTypeField|string $fieldConfig, mixed $value, array|null $rawDataList = null, integer $depthCount) : array|\Contentful\Delivery\Asset|\Contentful\Delivery\DynamicEntry|\Contentful\Link|\Contentful\Location|\DateTimeImmutable</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
@@ -722,9 +841,17 @@
                                                 <h4>$value</h4>
                                                 <code>mixed</code><p></p>
                                             </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rawDataList</h4>
+                                                <code>array|null</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$depthCount</h4>
+                                                <code>integer</code><p></p>
+                                            </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>array|<a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Delivery.Link.html">\Contentful\Delivery\Link</a>|<a href="../classes/Contentful.Location.html">\Contentful\Location</a>|\DateTimeImmutable</code><p></p>
+                                        <code>array|<a href="../classes/Contentful.Delivery.Asset.html">\Contentful\Delivery\Asset</a>|<a href="../classes/Contentful.Delivery.DynamicEntry.html">\Contentful\Delivery\DynamicEntry</a>|<a href="../classes/Contentful.Link.html">\Contentful\Link</a>|<a href="../classes/Contentful.Location.html">\Contentful\Location</a>|\DateTimeImmutable</code><p></p>
                                                                     </div>
                             </div>
 
@@ -742,14 +869,14 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
                                                 <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>When attempting to get a different Space than the one this ResourceBuilder is configured to handle.</p>
-                                                                                                    </td>
+                                                    <dl>
+                                                                                                            <dt>\Contentful\Exception\SpaceMismatchException</dt>
+                                                        <dd><p>When attempting to get a different Space than the one this ResourceBuilder is configured to handle.</p></dd>
+                                                                                                                                                            </dl>
+                                                </td>
                                             </tr>
                                                                             </table>
 
@@ -765,10 +892,10 @@
                             </div>
 
                         </div>
-                                            <a id="method_processIncludes"></a>
-                        <div class="element clickable method private  method_processIncludes" data-toggle="collapse" data-target=".method_processIncludes .collapse">
-                            <h2>Process the includes of an API response.</h2>
-                            <pre>processIncludes(object $includes) </pre>
+                                            <a id="method_normalizeFieldData"></a>
+                        <div class="element clickable method private  method_normalizeFieldData" data-toggle="collapse" data-target=".method_normalizeFieldData .collapse">
+                            <h2>normalizeFieldData</h2>
+                            <pre>normalizeFieldData(mixed $fieldData, string|null $locale) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -778,21 +905,20 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
+                                                                                                                    </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$includes</h4>
-                                                <code>object</code><p></p>
+                                                <h4>$fieldData</h4>
+                                                <code>mixed</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>string|null</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p></p>
                                                                     </div>
                             </div>
 
@@ -829,7 +955,7 @@
                                                     <a id="property_instanceCache"> </a>
                             <div class="element clickable property  private property_instanceCache" data-toggle="collapse" data-target=".property_instanceCache .collapse">
                                 <h2>instanceCache</h2>
-                                <pre>instanceCache : \Contentful\Delivery\InstanceCache</pre>
+                                <pre>instanceCache : \Contentful\Delivery\Cache\InstanceCache</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -848,7 +974,33 @@
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code><a href="../classes/Contentful.Delivery.InstanceCache.html">\Contentful\Delivery\InstanceCache</a></code>
+                                            <code><a href="../classes/Contentful.Delivery.Cache.InstanceCache.html">\Contentful\Delivery\Cache\InstanceCache</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_filesystemCache"> </a>
+                            <div class="element clickable property  private property_filesystemCache" data-toggle="collapse" data-target=".property_filesystemCache .collapse">
+                                <h2>filesystemCache</h2>
+                                <pre>filesystemCache : \Contentful\Delivery\Cache\CacheInterface</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/Contentful.Delivery.Cache.CacheInterface.html">\Contentful\Delivery\Cache\CacheInterface</a></code>
                                                                             </div>
                                 </div>
                             </div>
@@ -898,7 +1050,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 22 Feb 2016 12:45:48 +0000.<br/>
+            generated on Wed, 26 Apr 2017 14:11:11 +0000.<br/>
     </footer>
     </body>
 </html>
