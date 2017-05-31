@@ -130,7 +130,7 @@ class DynamicEntry extends LocalizedResource implements EntryInterface
         // Since DynamicEntry::getFieldForName manipulates the field name let's make sure we got the correct one
         $fieldName = $fieldConfig->getId();
 
-        if (!isset($this->fields[$fieldName])) {
+        if (!isset($this->fields[$fieldName]) || ($fieldConfig->getType() === 'Link' && empty($this->fields[$fieldName]))) {
             if ('Array' === $fieldConfig->getType()) {
                 return [];
             }
