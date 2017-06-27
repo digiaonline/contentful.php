@@ -149,43 +149,18 @@ class DynamicEntry extends LocalizedResource implements EntryInterface
             return $result->getId();
         }
 
+        // HACK: Don't attempt to resolve links, we don't need it
         if ($result instanceof Link) {
-            return $this->resolveLinkWithCache($result);
+            return $result;
         }
 
         if ($fieldConfig->getType() === 'Array' && $fieldConfig->getItemsType() === 'Link') {
             if ($getId) {
                 return array_map([$this, 'mapIdValues'], $result);
             }
-
-            return array_filter(array_map([$this, 'mapValues'], $result), function ($value) {
-                return !$value instanceof \Exception;
-            });
         }
 
         return $result;
-    }
-
-    /**
-     * Resolves a Link into an Entry or Asset. Resolved links are cached local to the object.
-     *
-     * @param  Link $link
-     *
-     * @return Asset|EntryInterface|null
-     */
-    private function resolveLinkWithCache(Link $link)
-    {
-        $cacheId = $link->getLinkType() . '-' . $link->getId();
-        if (isset($this->resolvedLinks[$cacheId])) {
-            return $this->resolvedLinks[$cacheId];
-        }
-        // If we knew whether the entry was constructed from the single locale or the multi-locale form, we could be
-        // more efficient but we don't so we aren't.
-        $resolvedObj = $this->client->resolveLink($link, '*');
-        $this->resolvedLinks[$cacheId] = $resolvedObj;
-        $resolvedObj->setLocale($this->getLocale());
-
-        return $resolvedObj;
     }
 
     /**
@@ -203,24 +178,6 @@ class DynamicEntry extends LocalizedResource implements EntryInterface
         }
 
         return $this->getContentType()->getField($fieldName);
-    }
-
-    /**
-     * @param  mixed $value
-     *
-     * @return mixed
-     */
-    private function mapValues($value)
-    {
-        if ($value instanceof Link) {
-            try {
-                return $this->resolveLinkWithCache($value);
-            } catch (NotFoundException $e) {
-                return $e;
-            }
-        }
-
-        return $value;
     }
 
     /**
