@@ -160,7 +160,7 @@ class DynamicEntry extends LocalizedResource implements EntryInterface
         if (array_key_exists($locale, $value)) {
             $result = $value[$locale];
         } else {
-            $result = '';
+            $result = null;
         }
 
         if ($getId && $fieldConfig->getType() === 'Link') {
